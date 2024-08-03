@@ -104,9 +104,9 @@ order by total_death_count desc;
 
 -- Showing contintents with the highest death count per population
 
-select continent, max(total_deaths) as total_death_count
+select continent, sum(new_deaths) as total_death_count
 from DataAnalysisProject..CovidDeaths
---where continent is not  null
+where continent is not  null and continent <> ''
 group by continent
 order by total_death_count desc;
 
